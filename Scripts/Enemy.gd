@@ -11,7 +11,10 @@ signal enemy_killed
 func _ready():
 	var main = get_tree().current_scene
 	if main.is_in_group("World"):
-		connect("enemy_killed", main, "_on_Enemy_enemy_killed")
+		var error_code = connect("enemy_killed", main, "_on_Enemy_enemy_killed")
+
+		if error_code != 0:
+			print('Error during signal connection:' + str(error_code))
 
 func _process(delta):
 	position.x -= SPEED * delta;
