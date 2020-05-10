@@ -15,3 +15,7 @@ func _on_Enemy_body_entered(body):
 	HEALTH -= 1
 	if HEALTH <= 0:
 		queue_free()
+
+# Signals
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
