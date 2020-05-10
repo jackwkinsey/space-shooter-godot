@@ -5,6 +5,8 @@ const ExplosionEffect = preload("res://Scenes/ExplosionEffect.tscn")
 export(int) var SPEED = 30;
 export(int) var HEALTH = 3;
 
+signal enemy_killed
+
 func _process(delta):
 	position.x -= SPEED * delta;
 
@@ -22,6 +24,7 @@ func _on_Enemy_body_entered(body):
 	
 	HEALTH -= 1
 	if HEALTH <= 0:
+		emit_signal("enemy_killed")
 		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():
