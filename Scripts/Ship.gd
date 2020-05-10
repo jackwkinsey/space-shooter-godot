@@ -4,11 +4,6 @@ const Bullet = preload("res://Scenes/Bullet.tscn")
 const ExplosionEffect = preload("res://Scenes/ExplosionEffect.tscn")
 
 export(int) var SPEED = 100
-
-func _ready():
-	var sprite = $Sprite
-	
-	pass
 	
 func _process(delta):
 	if Input.is_action_just_pressed("fire_bullet"):
@@ -30,7 +25,7 @@ func _exit_tree():
 	var main = get_tree().current_scene
 	var field = main.get_node("Field")
 	
-	field.add_child(explosion_effect)
+	field.call_deferred("add_child", explosion_effect)
 	explosion_effect.global_position = global_position
 
 # Signals
