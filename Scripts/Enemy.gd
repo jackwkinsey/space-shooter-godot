@@ -1,14 +1,22 @@
 extends Area2D
 
-export(int) var SPEED = 20;
-export(int) var HEALTH = 3;
+const ExplosionEffect = preload("res://Scenes/ExplosionEffect.tscn")
 
-func _ready():
-	pass
+export(int) var SPEED = 30;
+export(int) var HEALTH = 3;
 
 func _process(delta):
 	position.x -= SPEED * delta;
 
+func _exit_tree():
+	var explosion_effect = ExplosionEffect.instance()
+	var main = get_tree().current_scene
+	var field = main.get_node("Field")
+	
+	field.add_child(explosion_effect)
+	explosion_effect.global_position = global_position
+
+# Signals
 func _on_Enemy_body_entered(body):
 	body.queue_free()
 	
@@ -16,6 +24,5 @@ func _on_Enemy_body_entered(body):
 	if HEALTH <= 0:
 		queue_free()
 
-# Signals
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
