@@ -21,5 +21,5 @@ func create_hit_effect():
 	hit_effect.get_node("HitParticles").emitting = true
 
 # Signals
-func _on_Bullet_area_entered(area):
+func _on_Bullet_area_entered(_area):
 	create_hit_effect()
