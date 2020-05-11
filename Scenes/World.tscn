@@ -45,3 +45,4 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="ship_destroyed" from="Field/Ship" to="." method="_on_Ship_ship_destroyed"]
