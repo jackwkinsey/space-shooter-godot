@@ -19,6 +19,10 @@ config/name="SpaceShooter"
 run/main_scene="res://Scenes/StartMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Music="*res://Scenes/Music.tscn"
+
 [display]
 
 window/size/width=320
