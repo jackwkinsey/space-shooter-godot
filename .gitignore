@@ -12,8 +12,8 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 
-# Save data ignores
-save_data.json
+# Ignore Temp directory
+Temp/
 
 ### Linux ###
 *~
