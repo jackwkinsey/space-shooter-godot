@@ -17,6 +17,7 @@ orbit_velocity_random = 0.0
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -5.0
 autoplay = true
 
 [node name="HitParticles" type="Particles2D" parent="."]
