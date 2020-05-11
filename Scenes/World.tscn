@@ -4,17 +4,7 @@
 [ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fonts/PixelFont.tres" type="DynamicFont" id=4]
-
-[sub_resource type="ParticlesMaterial" id=1]
-emission_shape = 2
-emission_box_extents = Vector3( 1, 90, 1 )
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = -100.0
-initial_velocity_random = 0.5
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
+[ext_resource path="res://Scenes/StarParticles.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node" groups=[
 "World",
@@ -30,13 +20,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StarParticles" type="Particles2D" parent="."]
+[node name="StarParticles" parent="." instance=ExtResource( 5 )]
 position = Vector2( 320, 90 )
-emitting = false
-amount = 200
-lifetime = 7.0
-preprocess = 7.0
-process_material = SubResource( 1 )
 
 [node name="Field" type="Node2D" parent="."]
 __meta__ = {
